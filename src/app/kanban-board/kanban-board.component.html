@@ -1,0 +1,31 @@
+<h2>Quadro Kanban</h2>
+
+<div class="kanban-container">
+  <div class="column">
+    <h3>TO DO</h3>
+    <div *ngFor="let task of getTasksByColumn('TO DO')">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+      <p>{{ task.category }}</p>
+      <button (click)="moveTask(task, 'DOING')">Mover para DOING</button>
+    </div>
+  </div>
+  <div class="column">
+    <h3>DOING</h3>
+    <div *ngFor="let task of getTasksByColumn('DOING')">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+      <p>{{ task.category }}</p>
+      <button (click)="moveTask(task, 'TO DO')">Mover para TO DO</button>
+      <button (click)="moveTask(task, 'DONE')">Mover para DONE</button>
+    </div>
+  </div>
+  <div class="column">
+    <h3>DONE</h3>
+    <div *ngFor="let task of getTasksByColumn('DONE')">
+      <h4>{{ task.title }}</h4>
+      <p>{{ task.description }}</p>
+      <p>{{ task.category }}</p>
+    </div>
+  </div>
+</div>
